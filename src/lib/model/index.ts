@@ -22,3 +22,13 @@ export type {
   ScoreProbability,
   WinDrawLoseProbabilities
 } from "./poisson";
+
+export { analyzeMatch } from "./analyzeMatch";
+export type {
+  AnalyzeMatchInput,
+  AnalyzeMatchResult,
+  ExpectedGoals,
+  MarketComparison,
+  MatchRecommendation,
+  RiskLevel
+} from "./analyzeMatch";

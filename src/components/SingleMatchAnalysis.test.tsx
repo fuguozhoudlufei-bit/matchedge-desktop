@@ -15,6 +15,8 @@ describe("SingleMatchAnalysis", () => {
     expect(html).toContain("Prediction direction");
     expect(html).toContain("Top scores");
     expect(html).toContain("Over / Under");
+    expect(html).toContain("Odds comparison");
+    expect(html).toContain("Market comparison requires home, draw, and away odds.");
     expect(html).toContain("Recommendation");
   });
 });

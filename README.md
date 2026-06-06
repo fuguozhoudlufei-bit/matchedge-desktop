@@ -82,4 +82,6 @@ pnpm tauri
 
 ## Current Scope
 
-Issue #3 initializes the Tauri, React, TypeScript, Vite, Tailwind CSS, Vitest, and ESLint application skeleton only. SQLite, probability calculations, model functions, football data, and AI explanations are intentionally out of scope for this initialization.
+The app currently provides a single-match analysis page. Enter home and away team names, expected goals lambdas, maxGoals, and a top score limit to view deterministic expected goals, win/draw/lose probabilities, top scores, and a recommendation. Optional over/under and three-way market odds inputs show over/under probabilities, normalized market probabilities, overround, and model-market value gaps.
+
+SQLite persistence, external football data, automatic betting, and AI explanations are intentionally out of scope for the current UI.

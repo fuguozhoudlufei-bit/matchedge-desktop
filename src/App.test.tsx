@@ -9,6 +9,6 @@ describe("App", () => {
 
     expect(html).toContain("MatchEdge Desktop");
     expect(html).toContain("Football pre-match probability decision terminal");
+    expect(html).toContain("Single-match analysis");
   });
 });
-

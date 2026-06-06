@@ -15,6 +15,7 @@ import {
   defaultSingleMatchFormState,
   type SingleMatchFormState
 } from "./singleMatchAnalysisForm";
+import { SingleMatchReviewPanel } from "./SingleMatchReviewPanel";
 
 const probabilityFormatter = new Intl.NumberFormat("en-US", {
   style: "percent",
@@ -400,6 +401,12 @@ export function SingleMatchAnalysis() {
                 </div>
               </div>
             </section>
+
+            <SingleMatchReviewPanel
+              awayTeam={analysis.awayTeam}
+              homeTeam={analysis.homeTeam}
+              probabilities={result.winDrawLoseProbabilities}
+            />
 
             <section className="rounded-lg border border-zinc-800 bg-zinc-900/70 p-5">
               <h2 className="text-lg font-semibold text-zinc-50">Top scores</h2>

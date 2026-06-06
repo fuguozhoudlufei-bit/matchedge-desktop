@@ -82,6 +82,4 @@ pnpm tauri
 
 ## Current Scope
 
-The app currently provides a single-match analysis page. Enter home and away team names, expected goals lambdas, maxGoals, and a top score limit to view deterministic expected goals, win/draw/lose probabilities, top scores, and a recommendation. Optional over/under and three-way market odds inputs show over/under probabilities, normalized market probabilities, overround, and model-market value gaps.
-
-Local SQLite schema definitions live under `src/lib/db` and the Tauri SQL plugin is installed for future local database access. SQLite persistence in the UI, external football data, automatic betting, and AI explanations are intentionally out of scope for the current UI.
+The app currently provides a single-match analysis page with deterministic expected goals, win/draw/lose probabilities, top scores, optional over/under output, optional three-way market comparison, and a recommendation. It includes an in-memory post-match review panel for comparing prediction direction with the actual 90-minute result, but review records are not persisted yet. Local SQLite schema definitions live under `src/lib/db` for future local database access. SQLite persistence in the UI, external football data, automatic betting, and AI explanations are out of scope for the current UI.

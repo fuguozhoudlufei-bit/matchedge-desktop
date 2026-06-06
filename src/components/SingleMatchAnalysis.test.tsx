@@ -11,6 +11,8 @@ describe("SingleMatchAnalysis", () => {
     expect(html).toContain("Home expected goals lambda");
     expect(html).toContain("Away expected goals lambda");
     expect(html).toContain("Win / Draw / Lose");
+    expect(html).toContain("Post-match review");
+    expect(html).toContain("Prediction direction");
     expect(html).toContain("Top scores");
     expect(html).toContain("Over / Under");
     expect(html).toContain("Recommendation");

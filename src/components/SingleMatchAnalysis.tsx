@@ -10,6 +10,7 @@ import {
 } from "recharts";
 
 import type { RiskLevel, WinDrawLoseProbabilities } from "../lib/model";
+import { AIExplanationPanel } from "./AIExplanationPanel";
 import {
   buildSingleMatchAnalysis,
   defaultSingleMatchFormState,
@@ -479,6 +480,12 @@ export function SingleMatchAnalysis() {
                 ))}
               </ul>
             </section>
+
+            <AIExplanationPanel
+              awayTeam={analysis.awayTeam}
+              homeTeam={analysis.homeTeam}
+              result={result}
+            />
           </>
         )}
       </div>

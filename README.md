@@ -82,4 +82,10 @@ pnpm tauri
 
 ## Current Scope
 
-The app currently provides a single-match analysis page with deterministic expected goals, win/draw/lose probabilities, top scores, optional over/under output, an optional three-way odds comparison chart and table, and a recommendation. It includes an in-memory post-match review panel for comparing prediction direction with the actual 90-minute result, but review records are not persisted yet. Local SQLite schema definitions live under `src/lib/db` for future local database access. SQLite persistence in the UI, external football data, automatic betting, and AI explanations are out of scope for the current UI.
+The app currently provides a single-match analysis page with deterministic expected goals, win/draw/lose probabilities, top scores, optional over/under output, an optional odds comparison chart/table, a recommendation, an in-memory review panel, and a local deterministic AI explanation draft. Review records are not persisted yet. Local SQLite schema definitions live under `src/lib/db` for future local database access. SQLite persistence in the UI, external football data, automatic betting, real AI API calls, API keys, and network requests are out of scope for the current UI.
+
+## AI Explanation Layer
+
+The current explanation layer is local and deterministic. It builds a safe prompt/schema boundary and renders a draft explanation from the existing `analyzeMatch()` result, but it does not call the OpenAI API, does not require an API key, and does not make external network requests.
+
+Future OpenAI API integration must preserve model probabilities exactly. The model output remains the source of truth; an AI response may summarize, critique, and explain supplied output, but it must not calculate, modify, override, or invent model data.

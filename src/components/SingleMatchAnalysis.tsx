@@ -15,6 +15,7 @@ import {
   defaultSingleMatchFormState,
   type SingleMatchFormState
 } from "./singleMatchAnalysisForm";
+import { OddsComparisonChart } from "./OddsComparisonChart";
 import { SingleMatchReviewPanel } from "./SingleMatchReviewPanel";
 
 const probabilityFormatter = new Intl.NumberFormat("en-US", {
@@ -53,12 +54,6 @@ interface WdlChartDatum {
 
 function formatPercent(value: number): string {
   return probabilityFormatter.format(value);
-}
-
-function formatSignedPercent(value: number): string {
-  const sign = value > 0 ? "+" : "";
-
-  return `${sign}${formatPercent(value)}`;
 }
 
 function formatDecimal(value: number): string {
@@ -459,73 +454,7 @@ export function SingleMatchAnalysis() {
               </section>
             )}
 
-            {result.marketComparison === undefined ? null : (
-              <section className="rounded-lg border border-zinc-800 bg-zinc-900/70 p-5">
-                <h2 className="text-lg font-semibold text-zinc-50">Market comparison</h2>
-                <dl className="mt-4 grid gap-4 sm:grid-cols-3">
-                  <div>
-                    <dt className="text-sm text-zinc-400">Home market probability</dt>
-                    <dd className="mt-1 text-xl font-semibold text-zinc-50">
-                      {formatPercent(result.marketComparison.marketProbabilities.home)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm text-zinc-400">Draw market probability</dt>
-                    <dd className="mt-1 text-xl font-semibold text-zinc-50">
-                      {formatPercent(result.marketComparison.marketProbabilities.draw)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm text-zinc-400">Away market probability</dt>
-                    <dd className="mt-1 text-xl font-semibold text-zinc-50">
-                      {formatPercent(result.marketComparison.marketProbabilities.away)}
-                    </dd>
-                  </div>
-                </dl>
-
-                <div className="mt-5 overflow-hidden rounded-lg border border-zinc-800">
-                  <table className="w-full border-collapse text-left text-sm">
-                    <thead className="bg-zinc-950/70 text-zinc-400">
-                      <tr>
-                        <th className="px-4 py-3 font-medium" scope="col">
-                          Outcome
-                        </th>
-                        <th className="px-4 py-3 text-right font-medium" scope="col">
-                          Value gap
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-zinc-800">
-                      <tr>
-                        <td className="px-4 py-3 text-zinc-200">{analysis.homeTeam}</td>
-                        <td className="px-4 py-3 text-right font-semibold text-zinc-50">
-                          {formatSignedPercent(result.marketComparison.valueGap.home)}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-zinc-200">Draw</td>
-                        <td className="px-4 py-3 text-right font-semibold text-zinc-50">
-                          {formatSignedPercent(result.marketComparison.valueGap.draw)}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-zinc-200">{analysis.awayTeam}</td>
-                        <td className="px-4 py-3 text-right font-semibold text-zinc-50">
-                          {formatSignedPercent(result.marketComparison.valueGap.away)}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <p className="mt-4 text-sm text-zinc-300">
-                  Overround:{" "}
-                  <span className="font-semibold text-zinc-50">
-                    {formatSignedPercent(result.marketComparison.overround)}
-                  </span>
-                </p>
-              </section>
-            )}
+            <OddsComparisonChart result={result} />
 
             <section className="rounded-lg border border-zinc-800 bg-zinc-900/70 p-5">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
